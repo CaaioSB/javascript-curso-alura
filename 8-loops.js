@@ -18,16 +18,30 @@ const podeComprar = idadeComprador >= 18 || estaAcompanhada
 
 let destinoExiste = false
 
-for (var i = 0; i < listaDestino.length; i++) {
-  if (listaDestino[i] === destino) {
-    destinoExiste = true
-    break
+let contador = 0
+
+while (contador < listaDestino.length) {
+  if (listaDestino[contador] === destino) {
+    destinoExiste = true;
+    break;
   }
+  contador += 1;
 }
 
-if (destinoExiste) {
+
+if (podeComprar && destinoExiste) {
+  console.log(`\nBoa viagem! Esperamos que você curta ${destino}`)
+}
+else if (destinoExiste) {
   console.log(`\nO destino "${destino}" esta disponível para compras"`)
 }
 else {
   console.log(`\nO destino "${destino}" não esta disponível para compras"`)
+}
+
+for (let i = 0; i < listaDestino.length; i++) {
+  if (listaDestino[i] === destino) {
+    destinoExiste = true
+    break
+  }
 }
